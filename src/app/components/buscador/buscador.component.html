@@ -1,0 +1,19 @@
+<div class="mb-3">
+    <label for="ciudadClima" class="form-label">Ingrese ciudad</label>
+    <input type="text" class="form-control" id="ciudadClima" placeholder="Buenos Aires" [(ngModel)]="ciudad">
+  </div>
+  <div class="error" *ngIf="!query">
+    <h4>Introduzca una ciudad valida</h4>
+  </div>
+  <div class="col-auto">
+    <button type="submit" class="btn btn-primary mb-3" (click)="buscarClima()">Ver clima</button>
+</div>
+<div class="text-center" *ngIf="loading">
+  <div class="spinner-border text-info" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+
+</div>
+<div *ngIf="buscado">
+    <app-clima [temperatura]="temperatura" [humedad]="humedad" [clima]="clima"></app-clima>
+</div>
